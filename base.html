@@ -17,6 +17,8 @@
     <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
 
     <link rel="stylesheet" href="css/style.css">
+    
+    <title>Team Scheduling System</title>
 
 </head>
 
@@ -32,22 +34,22 @@
 
             <!-- Side nav -->
 
-
+            
             <ul id="slide-out" class="side-nav">
                 <li><a href="#!">Schedule</a></li>
                 <li><a href="#!">Score</a></li>
-                <li><a href="#!">Rankings</a></li>
+                <li><a href="#!">Ranking</a></li>
             </ul>
-            <a href="#" data-activates="slide-out" class="button-collapse"><i class="mdi-navigation-menu"></i></a>
+            <a href="#" data-activates="slide-out" class="button-collapse show-on-large"><i class="mdi-navigation-menu"></i></a>
         </div>
     </nav>
     <script>
         $('.button-collapse').sideNav({
             menuWidth: 300, // Default is 240
             edge: 'left', // Choose the horizontal origin
-            //closeOnClick: true // Closes side-nav on <a> clicks, useful for Angular/Meteor
+            closeOnClick: true // Closes side-nav on <a> clicks, useful for Angular/Meteor
         });
-        $('.collapsible').collapsible();
+        //$('.collapsible').collapsible();
         // Show sideNav
         //$('.button-collapse').sideNav('show');
         // Hide sideNav
