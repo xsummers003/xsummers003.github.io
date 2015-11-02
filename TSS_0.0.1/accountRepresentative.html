@@ -1,0 +1,80 @@
+<html>
+
+<head>
+
+    <!--JQuery-->
+    <script src="https://code.jquery.com/jquery-2.1.4.min.js"></script>
+
+    <!--Let browser know website is optimized for mobile-->
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+
+    <!-- Fonts -->
+    <link href='http://fonts.googleapis.com/css?family=Rokkitt:700|Oxygen:400,700' rel='stylesheet' type='text/css'>
+
+    <!--Import materialize.css-->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/materialize/0.97.0/css/materialize.min.css">
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/materialize/0.97.0/js/materialize.min.js"></script>
+    <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+
+    <link rel="stylesheet" href="css/style.css">
+
+</head>
+
+<body>
+    <!-- Load Base -->
+    <div id="base"></div>
+    <script>
+        $("#base").load("base.html");
+    </script>
+
+    <!-- Content -->
+    <div class="container">
+        <h2>Representative Name</h2>
+        <div class="row">
+
+            <div class="col s10 offset-s1 blue lighten-5">
+                <table>
+                    <tr>
+                        <td>
+                            <h4>School Name</h4>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td>School Address</td>
+                    </tr>
+                </table>
+            </div>
+        </div>
+        <div class="row">
+            <div class="col s10 offset-s1 blue lighten-5">
+                <table>
+                    <tr>
+                        <td>
+                            <h5>Team 1</h5>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td>team member 1</td>
+                    </tr>
+                    <tr>
+                        <td>team member 2</td>
+                    </tr>
+                    <tr>
+                        <td>team member 3</td>
+                    </tr>
+                </table>
+            </div>
+
+        </div>
+        <div class="row">
+            <div class="col s3 offset-s1">
+                <button class="btn waves-effect waves-light">
+                    <a href="newAccount.html" class="white-text">Add New Team</a>
+                </button>
+            </div>
+
+        </div>
+    </div>
+</body>
+
+</html>
