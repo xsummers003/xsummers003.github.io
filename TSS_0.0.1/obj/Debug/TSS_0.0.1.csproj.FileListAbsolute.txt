@@ -48,7 +48,6 @@ C:\Users\Steffen\Documents\GitHub\DebateSchedule\TSS_0.0.1\bin\roslyn\VBCSCompil
 C:\Users\Steffen\Documents\GitHub\DebateSchedule\TSS_0.0.1\bin\TSS_0.0.1.dll.config
 C:\Users\Steffen\Documents\GitHub\DebateSchedule\TSS_0.0.1\bin\TSS_0.0.1.dll
 C:\Users\Steffen\Documents\GitHub\DebateSchedule\TSS_0.0.1\bin\TSS_0.0.1.pdb
-C:\Users\Steffen\Documents\GitHub\DebateSchedule\TSS_0.0.1\bin\BussinessLogic.dll
 C:\Users\Steffen\Documents\GitHub\DebateSchedule\TSS_0.0.1\bin\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.dll
 C:\Users\Steffen\Documents\GitHub\DebateSchedule\TSS_0.0.1\bin\Microsoft.Web.Infrastructure.dll
 C:\Users\Steffen\Documents\GitHub\DebateSchedule\TSS_0.0.1\bin\System.Web.Helpers.dll
@@ -57,7 +56,6 @@ C:\Users\Steffen\Documents\GitHub\DebateSchedule\TSS_0.0.1\bin\System.Web.Razor.
 C:\Users\Steffen\Documents\GitHub\DebateSchedule\TSS_0.0.1\bin\System.Web.WebPages.Deployment.dll
 C:\Users\Steffen\Documents\GitHub\DebateSchedule\TSS_0.0.1\bin\System.Web.WebPages.dll
 C:\Users\Steffen\Documents\GitHub\DebateSchedule\TSS_0.0.1\bin\System.Web.WebPages.Razor.dll
-C:\Users\Steffen\Documents\GitHub\DebateSchedule\TSS_0.0.1\bin\BussinessLogic.pdb
 C:\Users\Steffen\Documents\GitHub\DebateSchedule\TSS_0.0.1\bin\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.xml
 C:\Users\Steffen\Documents\GitHub\DebateSchedule\TSS_0.0.1\bin\System.Web.Helpers.xml
 C:\Users\Steffen\Documents\GitHub\DebateSchedule\TSS_0.0.1\bin\System.Web.Mvc.xml
@@ -68,3 +66,7 @@ C:\Users\Steffen\Documents\GitHub\DebateSchedule\TSS_0.0.1\bin\System.Web.WebPag
 C:\Users\Steffen\Documents\GitHub\DebateSchedule\TSS_0.0.1\obj\Debug\TSS_0.0.1.csprojResolveAssemblyReference.cache
 C:\Users\Steffen\Documents\GitHub\DebateSchedule\TSS_0.0.1\obj\Debug\TSS_0.0.1.dll
 C:\Users\Steffen\Documents\GitHub\DebateSchedule\TSS_0.0.1\obj\Debug\TSS_0.0.1.pdb
+C:\Users\Steffen\Documents\GitHub\DebateSchedule\TSS_0.0.1\bin\BussinessObject.dll
+C:\Users\Steffen\Documents\GitHub\DebateSchedule\TSS_0.0.1\bin\DataAccess.dll
+C:\Users\Steffen\Documents\GitHub\DebateSchedule\TSS_0.0.1\bin\BussinessObject.pdb
+C:\Users\Steffen\Documents\GitHub\DebateSchedule\TSS_0.0.1\bin\DataAccess.pdb

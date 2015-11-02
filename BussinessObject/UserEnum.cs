@@ -6,9 +6,12 @@ using System.Threading.Tasks;
 
 namespace BussinessObject
 {
-    public class ObjectLayer
+    public enum UserEnum
     {
-        
-
+        Null,
+        TeamMember,
+        SchoolRep,
+        Referee,
+        SuperReferee
     }
 }

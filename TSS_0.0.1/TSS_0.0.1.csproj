@@ -95,6 +95,15 @@
   </ItemGroup>
   <ItemGroup>
     <Content Include="packages.config" />
+    <Content Include="accountMember.cshtml" />
+    <Content Include="accountReferee.cshtml" />
+    <Content Include="accountRepresentative.cshtml" />
+    <Content Include="accountSuperReferee.cshtml" />
+    <Content Include="index.cshtml" />
+    <Content Include="newAccount.cshtml" />
+    <Content Include="raking.cshtml" />
+    <Content Include="schedule.cshtml" />
+    <Content Include="scores.cshtml" />
     <None Include="Web.Debug.config">
       <DependentUpon>Web.config</DependentUpon>
     </None>
@@ -103,18 +112,10 @@
     </None>
   </ItemGroup>
   <ItemGroup>
-    <Content Include="accountMember.html" />
-    <Content Include="accountReferee.html" />
-    <Content Include="accountRepresentative.html" />
-    <Content Include="accountSuperReferee.html" />
+    <Content Include="_AppStart.cshtml" />
     <None Include="_Base.cshtml" />
-    <Content Include="home.html" />
     <None Include="login.cshtml" />
     <Content Include="materialize.css" />
-    <Content Include="newAccount.html" />
-    <Content Include="raking.html" />
-    <Content Include="schedule.html" />
-    <Content Include="scores.html" />
     <Content Include="Web.config" />
     <Content Include="ViewPage1.cshtml" />
   </ItemGroup>
@@ -122,9 +123,13 @@
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <ItemGroup>
-    <ProjectReference Include="..\BussinessLogic\BussinessLogic.csproj">
-      <Project>{c829a625-18bb-45e8-89e9-bc4edec584d9}</Project>
-      <Name>BussinessLogic</Name>
+    <ProjectReference Include="..\BussinessObject\BussinessObject.csproj">
+      <Project>{06dd53c6-ff30-45f2-89d7-0692d8433bde}</Project>
+      <Name>BussinessObject</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\DataAccess\DataAccess.csproj">
+      <Project>{e2a874a0-1a3c-46c6-8233-213f1bf54983}</Project>
+      <Name>DataAccess</Name>
     </ProjectReference>
   </ItemGroup>
   <PropertyGroup>

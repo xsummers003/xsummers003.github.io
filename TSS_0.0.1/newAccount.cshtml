@@ -1,3 +1,4 @@
+@using BussinessObject;
 <html>
 
 <head>
@@ -8,45 +9,94 @@
 <body>
     <!-- Content -->
     <div class="container">
-        <form class="col s12">
+        @{
+            Validation.RequireField("first_name", "Please enter a First Name");
+            Validation.RequireField("last_name", "Please enter a Last Name");
+            Validation.RequireField("user_name", "Please enter a Username");
+            Validation.RequireField("password", "Please enter a Password");
+            Validation.Add("password", Validator.StringLength(100,8,"Minimum Password length is 8"));
+            Validation.RequireField("password2", "Please confirm your Password");
+            Validation.Add("password2", Validator.EqualsTo("password", "Password does not match"));
+            Validation.RequireField("email", "Please enter an Email");
+            Validation.RequireField("user_type", "Please select a Position");
+
+            if (IsPost)
+            {
+                string inputFirstName = Request.Form["first_name"];
+                string inputLastName = Request.Form["last_name"];
+                string inputUsername = Request.Form["user_name"];
+                string inputPassword = Request.Form["password"];
+                string inputPassword2 = Request.Form["password2"];
+                string inputEmail = Request.Form["email"];
+                UserEnum inputUserType = (UserEnum)(int.Parse(Request["user_type"]));
+
+                if (Validation.IsValid())
+                {
+                    CreateAccount account = new CreateAccount(inputFirstName,inputLastName,inputUsername,inputPassword,inputEmail,inputUserType);
+
+                    /*if (login.Validate())
+                    {
+                        //Successful login code here
+                        <p class="red lighten-2">
+                            username: @inputUsername <br />
+                            encriptPass: @login.EncriptPass <br />
+                        </p>
+                    }
+                    else
+                    {
+                        <p class="red lighten-2">
+                            *Error: Username and/or Password does not match with the system <br />
+                        </p>
+                    }*/
+                }
+            }
+        }
+        <form class="col s12" method="post">
             <div class="row">
                 <h2>Create New Account</h2>
             </div>
             <div class="row">
                 <div class="input-field col s12 m6 l4">
-                    <input id="first_name" type="text" class="validate">
+                    <input name="first_name" type="text" class="validate" value="@Request.Form["first_name"]">
                     <label for="first_name">First Name</label>
+                    @Html.ValidationMessage("first_name")
                 </div>
                 <div class="input-field col s12 m6 l4">
-                    <input id="last_name" type="text" class="validate">
+                    <input name="last_name" type="text" class="validate" value="@Request.Form["last_name"]">
                     <label for="last_name">Last Name</label>
+                    @Html.ValidationMessage("last_name")
                 </div>
                 <div class="input-field col s12 m12 l4">
-                    <input id="user_name" type="text" class="validate">
+                    <input name="user_name" type="text" class="validate" value="@Request.Form["user_name"]">
                     <label for="user_name">Username</label>
+                    @Html.ValidationMessage("user_name")
                 </div>
                 <div class="input-field col s12 m6 l6">
-                    <input id="password" type="password" class="validate">
+                    <input name="password" placeholder="minimum 8 char" type="password" class="validate">
                     <label for="password">Password</label>
+                    @Html.ValidationMessage("password")
                 </div>
                 <div class="input-field col s12 m6 l6">
-                    <input id="password2" type="password" class="validate">
-                    <label for="password2">Varify Password</label>
+                    <input name="password2" type="password" class="validate">
+                    <label for="password2">Confirm Password</label>
+                    @Html.ValidationMessage("password2")
                 </div>
                 <div class="input-field col s12 m12 l12">
-                    <input id="email" type="email" class="validate">
-                    <label for="email" data-error="please enter a valid email">Email</label>
+                    <input name="email" type="email" class="validate" value="@Request.Form["email"]">
+                    <label class="col s6" for="email" data-error="please enter a valid email">Email</label>
+                    @Html.ValidationMessage("email")
                 </div>
             </div>
             <div class="row">
                 <div class="input-field col s12">
-                    <select>
+                    <select name="user_type" class="validate" required="">
                         <option value="0" disabled selected>Select a position</option>
-                        <option value="1">Team Member</option>
-                        <option value="2">School Representative</option>
-                        <option value="3">Referee</option>
+                        <option value="@((int)UserEnum.TeamMember)">Team Member</option>
+                        <option value="@((int)UserEnum.SchoolRep)">School Representative</option>
+                        <option value="@((int)UserEnum.Referee)">Referee</option>
                     </select>
-                    <label>User Account</label>
+                    <label for="user_type">User Account</label>
+                    @Html.ValidationMessage("user_type")
                 </div>
             </div>
             
@@ -54,7 +104,7 @@
             
             <div class="row ">
                 <div class="input-field col s12 m6 l6">
-                    <select>
+                    <select name="school">
                         <option value="0" disabled selected>Select a School</option>
                         <option value="1">School 1</option>
                         <option value="2">School 2</option>
@@ -63,7 +113,7 @@
                     <label>School</label>
                 </div>
                 <div class="input-field col s12 m6 l6">
-                    <select>
+                    <select name="team">
                         <option value="0" disabled selected>Select a Team</option>
                         <option value="1">Team 1</option>
                         <option value="2">Team 2</option>
@@ -77,7 +127,7 @@
             
             <div class="row ">
                 <div class="input-field col s12 m12 l12">
-                    <input id="school_name" type="text" class="validate">
+                    <input name="school_name" type="text" class="validate">
                     <label for="school_name">Enter your School</label>
                 </div>
             </div>
@@ -86,7 +136,7 @@
             
             <div class="row ">
                 <div class="input-field col s12 m12 l12">
-                    <input id="referee_code" type="text" class="validate">
+                    <input name="referee_code" type="text" class="validate">
                     <label for="referee_code">Enter provided referee code</label>
                 </div>
             </div>
