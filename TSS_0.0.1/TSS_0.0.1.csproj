@@ -107,7 +107,7 @@
     <Content Include="accountReferee.html" />
     <Content Include="accountRepresentative.html" />
     <Content Include="accountSuperReferee.html" />
-    <Content Include="base.html" />
+    <None Include="_Base.cshtml" />
     <Content Include="home.html" />
     <None Include="login.cshtml" />
     <Content Include="materialize.css" />
