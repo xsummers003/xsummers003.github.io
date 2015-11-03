@@ -3,3 +3,8 @@ C:\Users\Steffen\Documents\GitHub\DebateSchedule\DataAccess\bin\Debug\DataAccess
 C:\Users\Steffen\Documents\GitHub\DebateSchedule\DataAccess\obj\Debug\DataAccess.csprojResolveAssemblyReference.cache
 C:\Users\Steffen\Documents\GitHub\DebateSchedule\DataAccess\obj\Debug\DataAccess.dll
 C:\Users\Steffen\Documents\GitHub\DebateSchedule\DataAccess\obj\Debug\DataAccess.pdb
+C:\Users\workstation\Documents\My Web Sites\Github\DataAccess\bin\Debug\DataAccess.dll
+C:\Users\workstation\Documents\My Web Sites\Github\DataAccess\bin\Debug\DataAccess.pdb
+C:\Users\workstation\Documents\My Web Sites\Github\DataAccess\obj\Debug\DataAccess.csprojResolveAssemblyReference.cache
+C:\Users\workstation\Documents\My Web Sites\Github\DataAccess\obj\Debug\DataAccess.dll
+C:\Users\workstation\Documents\My Web Sites\Github\DataAccess\obj\Debug\DataAccess.pdb

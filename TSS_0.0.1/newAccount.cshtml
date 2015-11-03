@@ -3,7 +3,8 @@
 
 <head>
     <!-- Load Base -->
-    @RenderPage("_Base.cshtml");
+    @RenderPage("_Base.cshtml")
+
 </head>
 
 <body>
@@ -14,7 +15,7 @@
             Validation.RequireField("last_name", "Please enter a Last Name");
             Validation.RequireField("user_name", "Please enter a Username");
             Validation.RequireField("password", "Please enter a Password");
-            Validation.Add("password", Validator.StringLength(100,8,"Minimum Password length is 8"));
+            Validation.Add("password", Validator.StringLength(100, 8, "Minimum Password length is 8"));
             Validation.RequireField("password2", "Please confirm your Password");
             Validation.Add("password2", Validator.EqualsTo("password", "Password does not match"));
             Validation.RequireField("email", "Please enter an Email");
@@ -28,25 +29,32 @@
                 string inputPassword = Request.Form["password"];
                 string inputPassword2 = Request.Form["password2"];
                 string inputEmail = Request.Form["email"];
-                UserEnum inputUserType = (UserEnum)(int.Parse(Request["user_type"]));
+                UserEnum inputUserType = UserEnum.Null;
+                if (Request["user_type"] != null)
+                {
+                    inputUserType = (UserEnum)(int.Parse(Request["user_type"]));
+                }
+
 
                 if (Validation.IsValid())
                 {
-                    CreateAccount account = new CreateAccount(inputFirstName,inputLastName,inputUsername,inputPassword,inputEmail,inputUserType);
+                    CreateAccount account = new CreateAccount(inputFirstName, inputLastName, inputUsername, inputPassword, inputEmail, inputUserType);
+
+
 
                     /*if (login.Validate())
                     {
-                        //Successful login code here
-                        <p class="red lighten-2">
-                            username: @inputUsername <br />
-                            encriptPass: @login.EncriptPass <br />
-                        </p>
+                    //Successful login code here
+                    <p class="red lighten-2">
+                    username: @inputUsername <br />
+                    encriptPass: @login.EncriptPass <br />
+                    </p>
                     }
                     else
                     {
-                        <p class="red lighten-2">
-                            *Error: Username and/or Password does not match with the system <br />
-                        </p>
+                    <p class="red lighten-2">
+                    *Error: Username and/or Password does not match with the system <br />
+                    </p>
                     }*/
                 }
             }
@@ -59,50 +67,51 @@
                 <div class="input-field col s12 m6 l4">
                     <input name="first_name" type="text" class="validate" value="@Request.Form["first_name"]">
                     <label for="first_name">First Name</label>
-                    @Html.ValidationMessage("first_name")
+                    <p class="red-text lighten-2">@Html.ValidationMessage("first_name")</p>
                 </div>
                 <div class="input-field col s12 m6 l4">
                     <input name="last_name" type="text" class="validate" value="@Request.Form["last_name"]">
                     <label for="last_name">Last Name</label>
-                    @Html.ValidationMessage("last_name")
+                    <p class="red-text lighten-2">@Html.ValidationMessage("last_name")</p>
                 </div>
                 <div class="input-field col s12 m12 l4">
                     <input name="user_name" type="text" class="validate" value="@Request.Form["user_name"]">
                     <label for="user_name">Username</label>
-                    @Html.ValidationMessage("user_name")
+                    <p class="red-text lighten-2">@Html.ValidationMessage("user_name")</p>
                 </div>
                 <div class="input-field col s12 m6 l6">
                     <input name="password" placeholder="minimum 8 char" type="password" class="validate">
                     <label for="password">Password</label>
-                    @Html.ValidationMessage("password")
+                    <p class="red-text lighten-2">@Html.ValidationMessage("password")</p>
                 </div>
                 <div class="input-field col s12 m6 l6">
                     <input name="password2" type="password" class="validate">
                     <label for="password2">Confirm Password</label>
-                    @Html.ValidationMessage("password2")
+                    <p class="red-text lighten-2">@Html.ValidationMessage("password2")</p>
                 </div>
                 <div class="input-field col s12 m12 l12">
                     <input name="email" type="email" class="validate" value="@Request.Form["email"]">
                     <label class="col s6" for="email" data-error="please enter a valid email">Email</label>
-                    @Html.ValidationMessage("email")
+                    <p class="red-text lighten-2">@Html.ValidationMessage("email")</p>
                 </div>
             </div>
             <div class="row">
                 <div class="input-field col s12">
-                    <select name="user_type" class="validate" required="">
+                    <select name="user_type" class="validate" required="" onchange="test(this)">
                         <option value="0" disabled selected>Select a position</option>
                         <option value="@((int)UserEnum.TeamMember)">Team Member</option>
                         <option value="@((int)UserEnum.SchoolRep)">School Representative</option>
                         <option value="@((int)UserEnum.Referee)">Referee</option>
                     </select>
                     <label for="user_type">User Account</label>
-                    @Html.ValidationMessage("user_type")
+                    <p class="red-text lighten-2">@Html.ValidationMessage("user_type")</p>
                 </div>
             </div>
-            
+
             <!-- Only for Team Members -->
-            
-            <div class="row ">
+
+
+            <div class="row " id="team_members">
                 <div class="input-field col s12 m6 l6">
                     <select name="school">
                         <option value="0" disabled selected>Select a School</option>
@@ -122,27 +131,58 @@
                     <label>Team</label>
                 </div>
             </div>
-            
+
+
+
             <!-- Only for Representatives Members -->
-            
-            <div class="row ">
+
+            <div class="row " id="representative_members">
                 <div class="input-field col s12 m12 l12">
                     <input name="school_name" type="text" class="validate">
                     <label for="school_name">Enter your School</label>
                 </div>
             </div>
-            
+
+
+
             <!-- Only for Referee Members -->
-            
-            <div class="row ">
+
+            <div class="row " id="referee_members">
                 <div class="input-field col s12 m12 l12">
                     <input name="referee_code" type="text" class="validate">
                     <label for="referee_code">Enter provided referee code</label>
                 </div>
             </div>
-            
+
+            <script type="text/javascript">
+                document.getElementById("team_members").style.display = "none";
+                document.getElementById("representative_members").style.display = "none";
+                document.getElementById("referee_members").style.display = "none";
+
+                window.test = function (e) {
+                    if (e.value == "@((int)UserEnum.TeamMember)") {
+                        document.getElementById("team_members").style.display = "";
+                        document.getElementById("representative_members").style.display = "none";
+                        document.getElementById("referee_members").style.display = "none";
+                    }
+                    else if (e.value == "@((int)UserEnum.SchoolRep)") {
+                        document.getElementById("representative_members").style.display = "";
+                        document.getElementById("referee_members").style.display = "none";
+                        document.getElementById("team_members").style.display = "none";
+
+
+                    }
+                    else if (e.value == "@((int)UserEnum.Referee)") {
+                        document.getElementById("referee_members").style.display = "";
+                        document.getElementById("team_members").style.display = "none";
+                        document.getElementById("representative_members").style.display = "none";
+                    }
+                }
+
+            </script>
+
             <!-- Submit button -->
-            
+
             <div class="row ">
 
                 <div class="col offset-s4 offset-m8 offset-l10">
@@ -154,7 +194,7 @@
     </div>
 
     <script type="text/javascript">
-        $(document).ready(function() {
+        $(document).ready(function () {
             $('select').material_select();
         });
     </script>

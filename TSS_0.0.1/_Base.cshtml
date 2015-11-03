@@ -14,7 +14,7 @@
         <link href='http://fonts.googleapis.com/css?family=Rokkitt:700|Oxygen:400,700' rel='stylesheet' type='text/css'>
 
         <!--Import materialize.css-->
-        <link rel="stylesheet" href="~/materialize.css">
+        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/materialize/0.97.1/css/materialize.min.css">
         <script src="https://cdnjs.cloudflare.com/ajax/libs/materialize/0.97.0/js/materialize.min.js"></script>
         <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
 
@@ -24,13 +24,11 @@
 </head>
 
 <body>
-    @{
-        bool isHome = false;
-    }
+    
     <nav>
         <!-- Header -->
         <div class="nav-wrapper">
-            <a href="~/index.cshtml" class="brand-logo center">Logo</a>
+            <a href="~/index.cshtml" class="brand-logo center">Team Scheduling System</a>
             <ul id="nav-mobile" class="right">
                 <li><a href="~/login.cshtml">Login</a></li>
             </ul>
@@ -39,9 +37,9 @@
 
 
             <ul id="slide-out" class="side-nav">
-                <li><a href="schedule.html">Schedule</a></li>
-                <li><a href="scores.html">Score</a></li>
-                <li><a href="raking.html">Ranking</a></li>
+                <li><a href="~/schedule.cshtml">Schedule</a></li>
+                <li><a href="~/scores.cshtml">Score</a></li>
+                <li><a href="~/raking.cshtml">Ranking</a></li>
             </ul>
             <a href="#" data-activates="slide-out" class="button-collapse show-on-large"><i class="mdi-navigation-menu"></i></a>
         </div>
@@ -53,13 +51,7 @@
             closeOnClick: true // Closes side-nav on <a> clicks, useful for Angular/Meteor
         });
     </script>
-    @{
-        if(isHome){
-            <script>
-                $('.button-collapse').sideNav('show');
-            </script>
-        }
-    }
+    
 </body>
 
 </html>
